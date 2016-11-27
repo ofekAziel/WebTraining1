@@ -1,0 +1,59 @@
+body {
+    margin: 0 0 0 0;
+    font-family: Arial;
+}
+
+header {
+    background-color: blue;
+    height: 40px;
+}
+
+#logo, #logo-title, #header-btn {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    height: 70%;
+    margin: 0.5%;
+}
+
+#logo-title {
+    color: white;
+    text-decoration: none;
+}
+
+#header-btn {
+    float: right;
+    margin: 0.8%;
+}
+
+#header-btn li {
+    display: inline-block;
+}
+
+#header-btn li:hover {
+    background-color: cornflowerblue;
+}
+
+#header-btn li a {
+    text-decoration: none;
+    color: white;
+}
+
+#tweet-text, #publish-btn {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#tweet-text {
+    margin-top: 1%;
+    margin-left: 15%;
+    width: 45%;
+    height: 70px;
+}
+
+#publish-btn {
+    width: 5%;
+    height: 20px;
+}
