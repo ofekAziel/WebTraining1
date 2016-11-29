@@ -2,62 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/normalize.css">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
     <title>OfekTwitter</title>
 </head>
 <body>
     <header>
-        <img id="logo" src="http://d33wubrfki0l68.cloudfront.net/545dac4ebd31767f0fc66d20914a8118756962b4/d127c/images/ofek.png"/>
-        <a id="logo-title" href='index.html'>OfekTwitter</a>
-        <ul id="header-btn">
-            <li><a href="users.html">Users</a></li>
-            <li><a href="#">Sign up</a></li>
-            <li><a href="#">Sign in</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html">
+                        <img class="navbar-brand" id="logo-img" alt="Brand" src="http://d33wubrfki0l68.cloudfront.net/545dac4ebd31767f0fc66d20914a8118756962b4/d127c/images/ofek.png">
+                        <span class="navbar-brand">OfekTwitter</span>
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="users.html">Users</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <section>
-        <input id="tweet-text" type="text" placeholder="tweet text...">
-        <button id="publish-btn">publish</button>
-    </section>
-    <article>
-        <ul id="last-tweets">
-            <li>
+    <div class="container">
+        <div class="row">
+            <textarea placeholder="tweet text..." class="form-control" rows="3"></textarea>
+            <button class="btn btn-primary btn-large pull-right">publish</button>
+        </div>
+        <section class="last-tweets">
+            <div class="row">
                 <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
                 <div>
                     <b>James Bond says:</b>
                     <p>Blabla bla...</p>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="row">
                 <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
                 <div>
                     <b>James Bond says:</b>
                     <p>Bond, James bond</p>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="row">
                 <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
                 <div>
                     <b>Albert Einstein says:</b>
                     <p>E = mc^2</p>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="row">
                 <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
                 <div>
                     <b>Bill Gates says:</b>
                     <p>I think 64 bytes should be enough for everyone</p>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="row">
                 <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
                 <div>
                     <b>Frodo says:</b>
                     <p>My Precious</p>
                 </div>
-            </li>
-        </ul>
-    </article>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

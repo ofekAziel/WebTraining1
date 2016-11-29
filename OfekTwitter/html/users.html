@@ -2,133 +2,203 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/users.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
     <title>Users</title>
 </head>
 <body>
     <header>
-        <img id="logo" src="http://d33wubrfki0l68.cloudfront.net/545dac4ebd31767f0fc66d20914a8118756962b4/d127c/images/ofek.png"/>
-        <a id="logo-title" href='index.html'>OfekTwitter</a>
-        <ul id="header-btn">
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Sign up</a></li>
-            <li><a href="#">Sign in</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html">
+                        <img class="navbar-brand" id="logo-img" alt="Brand" src="http://d33wubrfki0l68.cloudfront.net/545dac4ebd31767f0fc66d20914a8118756962b4/d127c/images/ofek.png">
+                        <span class="navbar-brand">OfekTwitter</span>
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="users.html">Users</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <section>
-        <span>Filter by</span>
-        <input type="text" placeholder="user name">
-        <button>ok</button>
-    </section>
-    <article>
+    <div class="container">
         <div class="row">
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>follow</button>
-                </div>
-                <div class="user-name">
-                    <span>Marty McFly</span>
-                </div>
+            <div class="col-xs-3">
+                <input class="form-control" type="text" placeholder="filter by user name">
             </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>follow</button>
-                </div>
-                <div class="user-name">
-                    <span>James Bond</span>
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>unfollow</button>
-                </div>
-                <div class="user-name">
-                    <span>Janis Joplin</span>
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>follow</button>
-                </div>
-                <div class="user-name">
-                    <span>Mark Twain</span>
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>unfollow</button>
-                </div>
-                <div class="user-name">
-                    <span>Albert Einstein</span>
-                </div>
-            </div>
+            <button id="search-btn" class="btn btn-primary">ok</button>
         </div>
-        <div class="row">
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>follow</button>
-                </div>
-                <div class="user-name">
-                    <span>Frodo</span>
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>follow</button>
-                </div>
-                <div class="user-name">
-                    <span>Bill Gates</span>
+        <section class="col-xs-10">
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Marty McFly</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
-    <aside>
-        <div class="followees">
-            <h2>followees</h2>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>unfollow</button>
-                </div>
-                <div class="user-name">
-                    <span>Albert Einstein</span>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>James Bond</span>
+                    </div>
                 </div>
             </div>
-            <div class="user">
-                <div class="user-img">
-                    <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                </div>
-                <div class="follow-btn">
-                    <button>unfollow</button>
-                </div>
-                <div class="user-name">
-                    <span>Janis Joplin</span>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">unfollow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Janis Joplin</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </aside>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Mark Twain</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">unfollow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Albert Einstein</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Frodo</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Bill Gates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Dracula</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Caligula</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-2">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">follow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Obama</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside class="col-xs-2">
+            <h2>Followees</h2>
+            <div class="user col-xs-12">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">unfollow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Albert Einstein</span>
+                    </div>
+                </div>
+            </div>
+            <div class="user col-xs-12">
+                <div class="thumbnail animated rotateIn">
+                    <div class="user-img">
+                        <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
+                    </div>
+                    <div class="follow-btn">
+                        <button class="btn btn-primary">unfollow</button>
+                    </div>
+                    <div class="user-name">
+                        <span>Janis Joplin</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
 </body>
 </html>

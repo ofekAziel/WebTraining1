@@ -1,95 +1,20 @@
-body {
-    margin: 0 0 0 0;
-    font-family: Arial;
+.navbar-inverse {
+    background: #F44336 -webkit-linear-gradient(top,#F44336,#0a64eb) !important;
 }
 
-header {
-    background-color: blue;
-    height: 40px;
+#logo-img {
+    width: 20%;
 }
 
-#logo, #logo-title, #header-btn {
+.navbar-header a span, .nav li a {
+    color: white !important;
+}
+
+.navbar-header a span:hover, .nav li a:hover {
+    color: lightgrey !important;
+}
+
+.last-tweets .row div {
     display: inline-block;
-    vertical-align: middle;
-}
-
-#logo {
-    height: 70%;
-    margin: 0.5%;
-    padding: 0.4%;
-    margin-top: 0%;
-}
-
-#logo:hover {
-    background-color: cornflowerblue;
-}
-
-#logo-title {
-    color: white;
-    text-decoration: none;
-    line-height: 240%;
-    margin-top: -0.5%;
-    text-shadow: 2px 2px black;
-}
-
-#logo-title:hover {
-    background-color: cornflowerblue;
-}
-
-#header-btn {
-    float: right;
-    margin: 0.8%;
-}
-
-#header-btn li {
-    display: inline-block;
-    line-height: 240%;
-    margin-top: -4%;
-}
-
-#header-btn li:hover {
-    background-color: cornflowerblue;
-}
-
-#header-btn li a {
-    text-decoration: none;
-    color: white;
-    padding: 15px;
-    text-shadow: 2px 2px black;
-}
-
-#tweet-text, #publish-btn {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#tweet-text {
-    margin-top: 1%;
-    margin-left: 15%;
-    width: 45%;
-    height: 70px;
-}
-
-#publish-btn {
-    width: 5%;
-    height: 20px;
-}
-
-#last-tweets li img, #last-tweets div {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#last-tweets div {
-    margin-bottom: -0.2%;
-}
-
-#last-tweets li {
-    display: block;
-    margin-top: 2%;
-    margin-left: 12.7%;
-}
-
-#last-tweets div p {
-margin-top: 1%;
+    margin-bottom: 2%;
 }
