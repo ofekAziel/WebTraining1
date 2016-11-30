@@ -5,6 +5,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
+    <script src="../js/index.js"></script>
     <title>OfekTwitter</title>
 </head>
 <body>
@@ -33,45 +34,10 @@
     </header>
     <div class="container">
         <div class="row">
-            <textarea placeholder="tweet text..." class="form-control" rows="3"></textarea>
-            <button class="btn btn-primary btn-large pull-right">publish</button>
+            <textarea id="user-tweet" placeholder="tweet text..." class="form-control" rows="3"></textarea>
+            <button id="publish-btn" class="btn btn-primary btn-large pull-right">publish</button>
         </div>
-        <section class="last-tweets">
-            <div class="row animated bounceInLeft">
-                <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                <div>
-                    <b>James Bond says:</b>
-                    <p>Blabla bla...</p>
-                </div>
-            </div>
-            <div class="row animated bounceInLeft">
-                <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                <div>
-                    <b>James Bond says:</b>
-                    <p>Bond, James bond</p>
-                </div>
-            </div>
-            <div class="row animated bounceInLeft">
-                <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                <div>
-                    <b>Albert Einstein says:</b>
-                    <p>E = mc^2</p>
-                </div>
-            </div>
-            <div class="row animated bounceInLeft">
-                <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                <div>
-                    <b>Bill Gates says:</b>
-                    <p>I think 64 bytes should be enough for everyone</p>
-                </div>
-            </div>
-            <div class="row animated bounceInLeft">
-                <img src="http://d33wubrfki0l68.cloudfront.net/187476b214e39af1f1448e57603b720b395dcb87/b2fdf/images/useravatar.png">
-                <div>
-                    <b>Frodo says:</b>
-                    <p>My Precious</p>
-                </div>
-            </div>
+        <section id="last-tweets">
         </section>
     </div>
 </body>

@@ -14,7 +14,11 @@
     color: lightgrey !important;
 }
 
-.last-tweets .row div {
+.user-img {
+    margin-right: 0.5%;
+}
+
+.details {
     display: inline-block;
     margin-bottom: 2%;
 }
