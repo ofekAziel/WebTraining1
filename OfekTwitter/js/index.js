@@ -1,14 +1,16 @@
 var lastTweets = [
     {username: 'Bobo', text: 'hello followers!'},
     {username: 'Elvis', text: 'this exercise is really easy!'},
-    {username: 'Mimi', text: 'I want to go to sleep'}
+    {username: 'Mimi', text: 'I want to go to sleep'},
+    {username: 'Bill Gates', text: 'I think 64 bytes should be enough for everyone'},
+    {username: 'Frodo', text: 'My precious'}
 ];
 
 window.onload = function () {
-
-  createTweets();
-  var publishBtn = document.getElementById("publish-btn");
-  publishBtn.addEventListener("click", function () {newTweet();});
+    startTesting();
+    createTweets();
+    var publishBtn = document.getElementById("publish-btn");
+    publishBtn.addEventListener("click", function () {newTweet();});
 };
 
 var createTweets = function () {
@@ -30,19 +32,20 @@ var createTweet = function (name, text, color) {
     userName.style.color = color;
     var userTweet = document.createElement("p");
 
-    allTweets.appendChild(tweet);
     tweet.appendChild(userImage);
     tweet.appendChild(details);
     details.appendChild(userName);
     details.appendChild(userTweet);
     userName.appendChild(document.createTextNode(name));
     userTweet.appendChild(document.createTextNode(text));
+    allTweets.appendChild(tweet);
 };
 
 var newTweet = function () {
 
     var userTweet = document.getElementById("user-tweet");
     createTweet("Ofek", userTweet.value, "black");
+    lastTweets.push({username: "Ofek", text: userTweet.value});
     userTweet.value = "";
 };
 

@@ -4,6 +4,28 @@ var followees = [];
 window.onload = function () {
 
     createUsers();
+    createFollowees();
+    filter();
+};
+
+var filter = function () {
+
+    document.getElementById("filter-users").addEventListener("keyup", function () {
+
+        var filterText = document.getElementById("filter-users").value;
+
+        for (var index = 0; index < allUsers.length; index++) {
+
+            if (!allUsers[index].includes(filterText)) {
+
+                document.getElementById(allUsers[index]).classList.add("hidden");
+            }
+            else {
+
+                document.getElementById(allUsers[index]).classList.remove("hidden");
+            }
+        }
+    });
 };
 
 var createUsers = function () {
@@ -19,6 +41,7 @@ var createFollowees = function () {
 var createUser = function (currUserName, followStatus, colWidth, parent) {
 
     var user = document.createElement("div");
+    user.id = currUserName;
     user.className = colWidth;
     var userBlock = document.createElement("div");
     userBlock.className = "thumbnail animated rotateIn";
@@ -35,9 +58,8 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     var userName = document.createElement("div");
     userName.className = "user-name";
     var name = document.createElement("span");
-    btn.onclick = function () {follow(btn, name.innerText, user)};
+    btn.onclick = function () {follow(btn, name.innerText)};
 
-    parent.appendChild(user);
     user.appendChild(userBlock);
     userBlock.appendChild(userImage);
     userBlock.appendChild(followBtn);
@@ -46,30 +68,34 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     followBtn.appendChild(btn);
     userName.appendChild(name);
     name.appendChild(document.createTextNode(currUserName));
+    parent.appendChild(user);
 };
 
-var appendFollowees = function () {
+var updateUserStatus = function (name) {
 
-    var followeesElement = document.getElementById("followees");
-    var followeesHeadline = document.createElement("h2");
-    followeesHeadline.innerHTML = "Followees";
-    followeesElement.innerHTML = "";
-    followeesElement.appendChild(followeesHeadline);
+    var user = document.querySelector("#all-users [id='" + name + "']");
+    user.getElementsByClassName("btn")[0].value = "follow";
 };
 
-var follow = function (btn, name, user) {
+var deleteFollowee = function (name) {
 
-    appendFollowees();
+    var user = document.querySelector("#followees [id='" + name + "']");
+    user.remove();
+};
+
+var follow = function (btn, name) {
 
     if (btn.value == "follow") {
 
         btn.value = "unfollow";
         followees.push(name);
+        createUser(name, "unfollow", "col-xs-12", document.getElementById("followees"));
     }
     else {
+
         btn.value = "follow";
         followees.splice(followees.indexOf(name), 1);
+        deleteFollowee(name);
+        updateUserStatus(name);
     }
-
-    createFollowees();
 };
