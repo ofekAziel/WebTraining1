@@ -18,7 +18,6 @@ var createFollowees = function () {
 
 var createUser = function (currUserName, followStatus, colWidth, parent) {
 
-    // var users = document.getElementById("all-users");
     var user = document.createElement("div");
     user.className = colWidth;
     var userBlock = document.createElement("div");
@@ -36,7 +35,7 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     var userName = document.createElement("div");
     userName.className = "user-name";
     var name = document.createElement("span");
-    btn.onclick = function () {follow(btn, name, user)};
+    btn.onclick = function () {follow(btn, name.innerText, user)};
 
     parent.appendChild(user);
     user.appendChild(userBlock);
@@ -49,16 +48,27 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     name.appendChild(document.createTextNode(currUserName));
 };
 
+var appendFollowees = function () {
+
+    var followeesElement = document.getElementById("followees");
+    var followeesHeadline = document.createElement("h2");
+    followeesHeadline.innerHTML = "Followees";
+    followeesElement.innerHTML = "";
+    followeesElement.appendChild(followeesHeadline);
+};
+
 var follow = function (btn, name, user) {
+
+    appendFollowees();
 
     if (btn.value == "follow") {
 
         btn.value = "unfollow";
-        followees.push(name.innerText);
+        followees.push(name);
     }
     else {
         btn.value = "follow";
-        followees.splice(followees.indexOf(name.innerText), 1);
+        followees.splice(followees.indexOf(name), 1);
     }
 
     createFollowees();
