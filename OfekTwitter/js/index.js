@@ -7,9 +7,9 @@ var lastTweets = [
 ];
 
 window.onload = function () {
-    startTesting();
     createTweets();
-    var publishBtn = document.getElementById("publish-btn");
+    startTesting();
+    var publishBtn = $("#publish-btn").elements[0];
     publishBtn.addEventListener("click", function () {newTweet();});
 };
 
@@ -20,7 +20,7 @@ var createTweets = function () {
 
 var createTweet = function (name, text, color) {
 
-    var allTweets = document.getElementById("last-tweets");
+    var allTweets = $("#last-tweets").elements[0];
     var tweet = document.createElement("div");
     tweet.className = "row animated bounceInLeft";
     var userImage = document.createElement("img");
@@ -29,6 +29,7 @@ var createTweet = function (name, text, color) {
     var details = document.createElement("div");
     details.className = "details";
     var userName = document.createElement("b");
+    userName.className = "tweet-username";
     userName.style.color = color;
     var userTweet = document.createElement("p");
 
@@ -43,7 +44,7 @@ var createTweet = function (name, text, color) {
 
 var newTweet = function () {
 
-    var userTweet = document.getElementById("user-tweet");
+    var userTweet = $("#user-tweet").elements[0];
     createTweet("Ofek", userTweet.value, "black");
     lastTweets.push({username: "Ofek", text: userTweet.value});
     userTweet.value = "";

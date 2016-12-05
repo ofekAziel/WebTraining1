@@ -1,4 +1,4 @@
-var allUsers = ["Marty McFly", "Janis Joplin", "Albert Einstein", "Genghis Khan", "Dracula", "Forest Gump", "Caligula", "Winnie the Pooh", "Obama", "Henry the 8th"];
+var allUsers = [{name: "Marty McFly", id: "_1"}, {name: "Janis Joplin", id: "_2"}, {name: "Albert Einstein", id: "_3"}, {name: "Genghis Khan", id: "_4"}, {name: "Dracula", id: "_5"}, {name: "Forest Gump", id: "_6"}, {name: "Caligula", id: "_7"}, {name: "Winnie the Pooh", id: "_8"}, {name: "Obama", id: "_9"}, {name: "Henry the 8th", id: "_10"}];
 var followees = [];
 
 window.onload = function () {
@@ -10,19 +10,18 @@ window.onload = function () {
 
 var filter = function () {
 
-    document.getElementById("filter-users").addEventListener("keyup", function () {
+    $("#filter-users").elements[0].addEventListener("keyup", function () {
 
-        var filterText = document.getElementById("filter-users").value;
+        var filterText = $("#filter-users").elements[0].value;
 
         for (var index = 0; index < allUsers.length; index++) {
 
-            if (!allUsers[index].includes(filterText)) {
+            if (!allUsers[index].name.includes(filterText)) {
 
-                document.getElementById(allUsers[index]).classList.add("hidden");
+                $("#" + allUsers[index].id).addClass("hidden");
             }
             else {
-
-                document.getElementById(allUsers[index]).classList.remove("hidden");
+                $("#" + allUsers[index].id).removeClass("hidden");
             }
         }
     });
@@ -30,18 +29,18 @@ var filter = function () {
 
 var createUsers = function () {
 
-    allUsers.forEach(function(currUserName){createUser(currUserName, "follow", "col-xs-2", document.getElementById("all-users"))});
+    allUsers.forEach(function(currUser){createUser(currUser, "follow", "col-xs-2", $("#all-users").elements[0])});
 };
 
 var createFollowees = function () {
 
-    followees.forEach(function(currUserName){createUser(currUserName, "unfollow", "col-xs-12", document.getElementById("followees"))});
+    followees.forEach(function(currUser){createUser(currUser, "unfollow", "col-xs-12", $("#followees").elements[0])});
 };
 
-var createUser = function (currUserName, followStatus, colWidth, parent) {
+var createUser = function (currUser, followStatus, colWidth, parent) {
 
     var user = document.createElement("div");
-    user.id = currUserName;
+    user.id = currUser.id;
     user.className = colWidth;
     var userBlock = document.createElement("div");
     userBlock.className = "thumbnail animated rotateIn";
@@ -58,7 +57,7 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     var userName = document.createElement("div");
     userName.className = "user-name";
     var name = document.createElement("span");
-    btn.onclick = function () {follow(btn, name.innerText)};
+    btn.onclick = function () {follow(btn, currUser)};
 
     user.appendChild(userBlock);
     userBlock.appendChild(userImage);
@@ -67,35 +66,35 @@ var createUser = function (currUserName, followStatus, colWidth, parent) {
     userImage.appendChild(image);
     followBtn.appendChild(btn);
     userName.appendChild(name);
-    name.appendChild(document.createTextNode(currUserName));
+    name.appendChild(document.createTextNode(currUser.name));
     parent.appendChild(user);
 };
 
-var updateUserStatus = function (name) {
+var updateUserStatus = function (id) {
 
-    var user = document.querySelector("#all-users [id='" + name + "']");
+    var user = $("#all-users #" + id).elements[0];
     user.getElementsByClassName("btn")[0].value = "follow";
 };
 
-var deleteFollowee = function (name) {
+var deleteFollowee = function (id) {
 
-    var user = document.querySelector("#followees [id='" + name + "']");
+    var user = $("#followees #" + id).elements[0];
     user.remove();
 };
 
-var follow = function (btn, name) {
+var follow = function (btn, currUser) {
 
     if (btn.value == "follow") {
 
         btn.value = "unfollow";
-        followees.push(name);
-        createUser(name, "unfollow", "col-xs-12", document.getElementById("followees"));
+        followees.push(currUser);
+        createUser(currUser, "unfollow", "col-xs-12", $("#followees").elements[0]);
     }
     else {
 
         btn.value = "follow";
-        followees.splice(followees.indexOf(name), 1);
-        deleteFollowee(name);
-        updateUserStatus(name);
+        followees.splice(followees.indexOf(currUser), 1);
+        deleteFollowee(currUser.id);
+        updateUserStatus(currUser.id);
     }
 };
