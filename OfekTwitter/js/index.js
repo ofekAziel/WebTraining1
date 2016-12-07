@@ -1,5 +1,7 @@
 var lastTweets = [];
 var allUsers = [];
+const userId = "cc707c95-f1e3-4caf-906d-f9dd1f394b99";
+const userName = "Reyna";
 
 window.onload = function () {
 
@@ -9,7 +11,11 @@ window.onload = function () {
             allUsers = users.data;
             lastTweets = tweets.data;
             init();
-        }));
+        }))
+        .catch(function (error) {
+
+        console.log(error);
+    });
 };
 
 var init = function () {
@@ -22,23 +28,7 @@ var init = function () {
 
 var createTweets = function () {
 
-    var userName;
-
-    lastTweets.forEach(function(tweet) {
-
-        userName = "";
-
-        for (user of allUsers) {
-
-            if (tweet.user === user._id) {
-
-                userName = user.username;
-                break;
-            }
-        }
-
-        createTweet(userName, tweet.text, "green");
-    });
+    lastTweets.forEach(function(tweet) {createTweet(getUserNameById(tweet.user, allUsers), tweet.text, "green");});
 };
 
 var createTweet = function (name, text, color) {
@@ -68,8 +58,7 @@ var createTweet = function (name, text, color) {
 var newTweet = function () {
 
     var userTweet = $("#user-tweet").elements[0];
-    var userId = "cc707c95-f1e3-4caf-906d-f9dd1f394b99";
-    createTweet("Reyna", userTweet.value, "black");
+    createTweet(userName, userTweet.value, "black");
     lastTweets.push({user: userId, text: userTweet.value});
     userTweet.value = "";
     postNewTweet(userId, userTweet.value);

@@ -1,11 +1,11 @@
 var getAllUsers = function () {
 
-    return axios.get('http://10.103.50.193:8080/users');
+    return axios.get('users');
 };
 
 var getAllTweets = function () {
 
-    return axios.get('http://10.103.50.193:8080/tweets');
+    return axios.get('tweets');
 };
 
 var postNewTweet = function (userId, text) {
@@ -17,7 +17,10 @@ var postNewTweet = function (userId, text) {
         .then(function (response) {
             console.log(response.data);
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+        .catch(console.log);
+};
+
+var getUserById = function (userId) {
+
+    return axios.get('users/' + userId);
 };

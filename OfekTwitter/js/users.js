@@ -1,7 +1,23 @@
-var allUsers = [{name: "Marty McFly", id: "_1"}, {name: "Janis Joplin", id: "_2"}, {name: "Albert Einstein", id: "_3"}, {name: "Genghis Khan", id: "_4"}, {name: "Dracula", id: "_5"}, {name: "Forest Gump", id: "_6"}, {name: "Caligula", id: "_7"}, {name: "Winnie the Pooh", id: "_8"}, {name: "Obama", id: "_9"}, {name: "Henry the 8th", id: "_10"}];
+var allUsers = [];
 var followees = [];
+const userId = "cc707c95-f1e3-4caf-906d-f9dd1f394b99";
 
 window.onload = function () {
+
+    axios.all([getAllUsers(), getUserById(userId)])
+        .then(axios.spread(function (users, userById) {
+
+            allUsers = users.data;
+            followees = userById.data[0].following;
+            init();
+        }))
+        .catch(function (error) {
+
+            console.log(error);
+        });
+};
+
+var init = function () {
 
     createUsers();
     createFollowees();
@@ -27,20 +43,36 @@ var filter = function () {
     });
 };
 
-var createUsers = function () {
-
-    allUsers.forEach(function(currUser){createUser(currUser, "follow", "col-xs-2", $("#all-users").elements[0])});
-};
-
 var createFollowees = function () {
 
-    followees.forEach(function(currUser){createUser(currUser, "unfollow", "col-xs-12", $("#followees").elements[0])});
+    followees.forEach(function(currId){createUser({_id: currId, username: getUserNameById(currId, allUsers)}, "unfollow", "col-xs-12", $("#followees").elements[0])});
+};
+
+var createUsers = function () {
+
+    allUsers.forEach(function(currUser) {
+
+        var followStatus = "follow";
+
+        if (currUser._id !== userId) {
+
+            for (followee of followees) {
+
+                if (currUser._id === followee) {
+
+                    followStatus = "unfollow";
+                }
+            }
+
+            createUser(currUser, followStatus, "col-xs-2", $("#all-users").elements[0]);
+        }
+    });
 };
 
 var createUser = function (currUser, followStatus, colWidth, parent) {
 
     var user = document.createElement("div");
-    user.id = currUser.id;
+    user.id = currUser._id;
     user.className = colWidth;
     var userBlock = document.createElement("div");
     userBlock.className = "thumbnail animated rotateIn";
@@ -66,7 +98,7 @@ var createUser = function (currUser, followStatus, colWidth, parent) {
     userImage.appendChild(image);
     followBtn.appendChild(btn);
     userName.appendChild(name);
-    name.appendChild(document.createTextNode(currUser.name));
+    name.appendChild(document.createTextNode(currUser.username));
     parent.appendChild(user);
 };
 
@@ -94,7 +126,7 @@ var follow = function (btn, currUser) {
 
         btn.value = "follow";
         followees.splice(followees.indexOf(currUser), 1);
-        deleteFollowee(currUser.id);
-        updateUserStatus(currUser.id);
+        deleteFollowee(currUser._id);
+        updateUserStatus(currUser._id);
     }
 };
