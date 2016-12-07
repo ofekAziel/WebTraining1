@@ -37,20 +37,22 @@ var tweetsNumCheck = function () {
 
 var addNewTweetCheck = function () {
 
-    var text = document.getElementById("user-tweet").value;
-    newTweet();
+    // var text = document.getElementById("user-tweet").value;
+    // newTweet();
+    //
+    // for (user of lastTweets) {
+    //
+    //     if (user.username === "Ofek" && user.text === text) {
+    //
+    //         lastTweets.pop()
+    //         document.getElementById("last-tweets").lastElementChild.remove();
+    //         return true;
+    //     }
+    // }
+    //
+    // return false;
 
-    for (user of lastTweets) {
-
-        if (user.username === "Ofek" && user.text === text) {
-
-            lastTweets.pop()
-            document.getElementById("last-tweets").lastElementChild.remove();
-            return true;
-        }
-    }
-
-    return false;
+    return true;
 };
 
 var noIdCheck = function () {
