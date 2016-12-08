@@ -1,6 +1,6 @@
 var allUsers = [];
 var followees = [];
-const userId = "cc707c95-f1e3-4caf-906d-f9dd1f394b99";
+const userId = "ff2b41b9-e1d8-4594-9aa3-c1dda30b0d22";
 
 window.onload = function () {
 
@@ -8,7 +8,7 @@ window.onload = function () {
         .then(axios.spread(function (users, userById) {
 
             allUsers = users.data;
-            followees = userById.data[0].following;
+            followees = userById.data.following;
             init();
         }))
         .catch(function (error) {
@@ -129,4 +129,6 @@ var follow = function (btn, currUser) {
         deleteFollowee(currUser._id);
         updateUserStatus(currUser._id);
     }
+
+    updateUserFollowing(userId, currUser._id);
 };

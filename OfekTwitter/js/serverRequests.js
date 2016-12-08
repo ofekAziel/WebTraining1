@@ -8,9 +8,14 @@ var getAllTweets = function () {
     return axios.get('tweets');
 };
 
+var getUserById = function (userId) {
+
+    return axios.get('users/' + userId);
+};
+
 var postNewTweet = function (userId, text) {
 
-    axios.put('http://10.103.50.193:8080/tweets', {
+    axios.put('tweets', {
         user: userId,
         text: text
     })
@@ -20,7 +25,14 @@ var postNewTweet = function (userId, text) {
         .catch(console.log);
 };
 
-var getUserById = function (userId) {
+var updateUserFollowing = function (userId, followUserId) {
 
-    return axios.get('users/' + userId);
+    axios.put('user/following', {
+        userId: userId,
+        followUserId: followUserId
+    })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(console.log);
 };

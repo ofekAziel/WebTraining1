@@ -1,7 +1,7 @@
 var lastTweets = [];
 var allUsers = [];
-const userId = "cc707c95-f1e3-4caf-906d-f9dd1f394b99";
-const userName = "Reyna";
+const userId = "ff2b41b9-e1d8-4594-9aa3-c1dda30b0d22";
+const userName = "Butler";
 
 window.onload = function () {
 
@@ -60,8 +60,8 @@ var newTweet = function () {
     var userTweet = $("#user-tweet").elements[0];
     createTweet(userName, userTweet.value, "black");
     lastTweets.push({user: userId, text: userTweet.value});
-    userTweet.value = "";
     postNewTweet(userId, userTweet.value);
+    userTweet.value = "";
 };
 
 

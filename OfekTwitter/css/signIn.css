@@ -1,0 +1,19 @@
+.navbar-inverse {
+    background: #F44336 -webkit-linear-gradient(top,#F44336,#0a64eb) !important;
+}
+
+#logo-img {
+    width: 20%;
+}
+
+.navbar-header a span, .nav li a {
+    color: white !important;
+}
+
+.navbar-header a span:hover, .nav li a:hover {
+    color: lightgrey !important;
+}
+
+.panel-heading {
+    background: #F44336 -webkit-linear-gradient(top,#F44336,#0a64eb);
+}
