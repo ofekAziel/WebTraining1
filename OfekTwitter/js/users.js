@@ -32,12 +32,12 @@ var filter = function () {
 
         for (var index = 0; index < allUsers.length; index++) {
 
-            if (!allUsers[index].name.includes(filterText)) {
+            if (!allUsers[index].username.includes(filterText)) {
 
-                $("#" + allUsers[index].id).addClass("hidden");
+                $("#" + allUsers[index]._id).addClass("hidden");
             }
             else {
-                $("#" + allUsers[index].id).removeClass("hidden");
+                $("#" + allUsers[index]._id).removeClass("hidden");
             }
         }
     });
