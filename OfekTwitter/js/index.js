@@ -1,29 +1,36 @@
 var lastTweets = [];
 var allUsers = [];
 var userFollowingById = [];
-const userId = "ff2b41b9-e1d8-4594-9aa3-c1dda30b0d22";
-const userName = "Butler";
+var userId = "";
+var userName = "";
 
 window.onload = function () {
 
-    axios.all([getAllUsers(), getAllTweets(), getUserById(userId)])
-        .then(axios.spread(function (users, tweets, user) {
-
-            allUsers = users.data;
-            lastTweets = tweets.data;
-            userFollowingById = user.data.following;
-            init();
+    axios.all([getAllUsers(), getAllTweets(), getSessionPromise()])
+        .then(axios.spread(function (users, tweets, session) {
+            if (session.data._id !== undefined) {
+                userId = session.data._id;
+                userName = session.data.username;
+                allUsers = users.data;
+                lastTweets = tweets.data;
+                getUserById(userId).then(function (user) {
+                    userFollowingById = user.data.following;
+                    init();
+                });
+            } else {
+                window.location = "../html/signIn.html";
+            }
         }))
         .catch(function (error) {
+            console.log(error);
 
-        console.log(error);
     });
 };
 
 var init = function () {
 
     createTweets();
-    startTesting();
+    // startTesting();
     var publishBtn = $("#publish-btn").elements[0];
     publishBtn.addEventListener("click", newTweet);
 };

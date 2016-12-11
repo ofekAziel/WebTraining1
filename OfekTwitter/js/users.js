@@ -1,18 +1,24 @@
 var allUsers = [];
 var followees = [];
-const userId = "ff2b41b9-e1d8-4594-9aa3-c1dda30b0d22";
+var userId = "";
 
 window.onload = function () {
 
-    axios.all([getAllUsers(), getUserById(userId)])
-        .then(axios.spread(function (users, userById) {
+    axios.all([getAllUsers(), getSessionPromise()])
+        .then(axios.spread(function (users, session) {
+            if (session.data._id !== undefined) {
+                userId = session.data._id;
+                allUsers = users.data;
 
-            allUsers = users.data;
-            followees = userById.data.following;
-            init();
+                getUserById(userId).then(function (userById) {
+                    followees = userById.data.following;
+                    init();
+                });
+            } else {
+                window.location = "../html/signIn.html";
+            }
         }))
         .catch(function (error) {
-
             console.log(error);
         });
 };
